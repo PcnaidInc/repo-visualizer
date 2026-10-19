@@ -137,3 +137,7 @@ Note that this will still also create a commit, unless you specify `should_push:
 
 Alternatively, the SVG description of the diagram is available in the `svg` output,
 which you can refer to in your workflow as e.g. `${{ steps.make_diagram.outputs.svg }}`.
+
+## CI
+
+The CI workflow (`.github/workflows/ci.yml`) runs on pull requests and pushes to `main`. It checks TypeScript types (`yarn typecheck`), runs unit tests (`yarn test`), and verifies the build (`yarn build`). Superseded workflow runs are automatically cancelled via concurrency groups.
